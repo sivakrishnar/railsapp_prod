@@ -1,4 +1,8 @@
 NewsSession::Application.routes.draw do
+  resources :movie_reviews
+
+  resources :newsitems
+
   resources :trailers
 
   resources :videos

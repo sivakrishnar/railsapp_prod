@@ -1,0 +1,33 @@
+<h1>Listing movie_reviews</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Image url</th>
+    <th>Rating</th>
+    <th>Active</th>
+    <th>Author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @movie_reviews.each do |movie_review| %>
+  <tr>
+    <td><%= movie_review.title %></td>
+    <td><%= movie_review.content %></td>
+    <td><%= movie_review.image_url %></td>
+    <td><%= movie_review.rating %></td>
+    <td><%= movie_review.active %></td>
+    <td><%= movie_review.author %></td>
+    <td><%= link_to 'Show', movie_review %></td>
+    <td><%= link_to 'Edit', edit_movie_review_path(movie_review) %></td>
+    <td><%= link_to 'Destroy', movie_review, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Movie review', new_movie_review_path %>
