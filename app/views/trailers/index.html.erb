@@ -1,0 +1,29 @@
+<h1>Listing trailers</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+    <th>Image url</th>
+    <th>Active</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trailers.each do |trailer| %>
+  <tr>
+    <td><%= trailer.title %></td>
+    <td><%= trailer.url %></td>
+    <td><%= trailer.image_url %></td>
+    <td><%= trailer.active %></td>
+    <td><%= link_to 'Show', trailer %></td>
+    <td><%= link_to 'Edit', edit_trailer_path(trailer) %></td>
+    <td><%= link_to 'Destroy', trailer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trailer', new_trailer_path %>

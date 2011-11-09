@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @trailer.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @trailer.url %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @trailer.image_url %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @trailer.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_trailer_path(@trailer) %> |
+<%= link_to 'Back', trailers_path %>

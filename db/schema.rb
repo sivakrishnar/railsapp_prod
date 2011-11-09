@@ -10,10 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109065535) do
+ActiveRecord::Schema.define(:version => 20111109070322) do
 
   create_table "headlines", :force => true do |t|
     t.text     "title"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trailers", :force => true do |t|
+    t.text     "title"
+    t.text     "url"
+    t.text     "image_url"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
