@@ -1,4 +1,6 @@
 NewsSession::Application.routes.draw do
+  resources :videos
+
   resources :headlines
 
   # The priority is based upon order of creation:
