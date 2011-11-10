@@ -1,35 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @movie_review.title %>
+  <b><%= @movie_review.title %></b>
 </p>
 
 <p>
-  <b>Content:</b>
+  <b>Rating:<%= @movie_review.rating %></b>
+</p>
+
+<p>
   <%= @movie_review.content %>
 </p>
 
 <p>
-  <b>Image url:</b>
-  <%= @movie_review.image_url %>
+  Author: <%= @movie_review.author %>
 </p>
-
-<p>
-  <b>Rating:</b>
-  <%= @movie_review.rating %>
-</p>
-
-<p>
-  <b>Active:</b>
-  <%= @movie_review.active %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @movie_review.author %>
-</p>
-
-
-<%= link_to 'Edit', edit_movie_review_path(@movie_review) %> |
-<%= link_to 'Back', movie_reviews_path %>
