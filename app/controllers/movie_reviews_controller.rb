@@ -9,6 +9,17 @@ class MovieReviewsController < ApplicationController
       format.xml  { render :xml => @movie_reviews }
     end
   end
+  
+  # GET /movie_reviews/1
+  # GET /movie_reviews/1.xml
+  def mobile_show
+      @movie_review = MovieReview.find(params[:id])
+  
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @movie_review }
+      end
+  end
 
   # GET /movie_reviews/1
   # GET /movie_reviews/1.xml
