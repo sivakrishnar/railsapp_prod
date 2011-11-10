@@ -9,6 +9,17 @@ class HeadlinesController < ApplicationController
       format.xml  { render :xml => @headlines }
     end
   end
+  
+  # GET /headlines/1
+  # GET /headlines/1.xml
+  def mobile_show
+      @headline = Headline.find(params[:id])
+  
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @headline }
+      end
+  end
 
   # GET /headlines/1
   # GET /headlines/1.xml
