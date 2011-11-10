@@ -9,6 +9,17 @@ class NewsitemsController < ApplicationController
       format.xml  { render :xml => @newsitems }
     end
   end
+  
+  # GET /newsitems/1
+  # GET /newsitems/1.xml
+  def mobile_show
+      @newsitem = Newsitem.find(params[:id])
+  
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @newsitem }
+      end
+  end
 
   # GET /newsitems/1
   # GET /newsitems/1.xml

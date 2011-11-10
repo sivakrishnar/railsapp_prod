@@ -10,6 +10,7 @@ NewsSession::Application.routes.draw do
   resources :headlines
   
   match 'headlines/:id/mobile' => 'headlines#mobile_show'
+  match 'newsitems/:id/mobile' => 'newsitems#mobile_show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
