@@ -1,3 +1,7 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @newsitem.title %></h1>  <b>Author:<%= @newsitem.author %><br /><%= @newsitem.created_at.strftime('%m/%d/%y') %></b><br />
-<div style="width:400px; float:left; background:#00CC33;"><pre style="font-family:Verdana; font-size: 16px;"><%= @newsitem.content %></pre></div>
+<h1><%= @newsitem.title %></h1>  <b>Author:<%= @newsitem.author %><br /><%= @newsitem.created_at.strftime('%Y/%m/%d') %></b><br />
+<div style="width:400px; float:left; background:#00CC33;">
+  <pre style="font-family: 'Lucida Grande', 'Bitstream Vera Sans', 'Verdana'; font-size: 16px; color:333">
+    <%= @newsitem.content %>
+  </pre>
+</div>

@@ -1,20 +1,3 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b></b>
-</p>
-
-<p>
-  <b></b>
-</p>
-
-<p>
-  
-</p>
-
-<p>
-  
-</p>
-
 <h1><%= @movie_review.title %></h1>  <b>Rating:<%= @movie_review.rating %><br />Author: <%= @movie_review.author %><br /><%= @movie_review.created_at.strftime('%m/%d/%y') %></b><br />
-<div style="width:400px; float:left; background:#00CC33;"><pre style="font-family:Verdana; font-size: 16px;"><%= @movie_review.content %></pre></div>
+<div style="width:400px; float:left; background:#00CC33;"><pre style="font-family: 'Lucida Grande', 'Bitstream Vera Sans', 'Verdana'; font-size: 16px;"><%= @movie_review.content %></pre></div>
