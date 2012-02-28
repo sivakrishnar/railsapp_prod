@@ -1,17 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= @movie_review.title %></b>
+  <b></b>
 </p>
 
 <p>
-  <b>Rating:<%= @movie_review.rating %></b>
+  <b></b>
 </p>
 
 <p>
-  <%= @movie_review.content %>
+  
 </p>
 
 <p>
-  Author: <%= @movie_review.author %>
+  
 </p>
+
+<h1><%= @movie_review.title %></h1>  <b>Rating:<%= @movie_review.rating %><br />Author: <%= @movie_review.author %><br /><%= @movie_review.created_at.strftime('%m/%d/%y') %></b><br />
+<div style="width:400px; float:left; background:#00CC33;"><pre style="font-family:Verdana; font-size: 16px;"><%= @movie_review.content %></pre></div>
