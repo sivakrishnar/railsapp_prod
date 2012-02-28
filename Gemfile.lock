@@ -30,13 +30,8 @@ GEM
     activesupport (3.0.9)
     arel (2.0.10)
     builder (2.1.2)
-    contact_us (0.2.0)
-      formtastic (>= 2.1.0)
-      rails (>= 3.0.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    formtastic (2.1.0)
-      actionpack (~> 3.0)
     i18n (0.5.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -77,7 +72,5 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  contact_us (~> 0.2.0)
-  formtastic
   rails (= 3.0.9)
   sqlite3
