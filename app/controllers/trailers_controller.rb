@@ -2,7 +2,7 @@ class TrailersController < ApplicationController
   # GET /trailers
   # GET /trailers.xml
   def index
-    @trailers = Trailer.all
+    @trailers = Trailer.find(:all, :order => "updated_at", :limit => 40)
 
     respond_to do |format|
       format.html # index.html.erb

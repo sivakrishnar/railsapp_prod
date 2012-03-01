@@ -2,7 +2,7 @@ class HeadlinesController < ApplicationController
   # GET /headlines
   # GET /headlines.xml
   def index
-    @headlines = Headline.all
+    @headlines = Headline.find(:all, :order => "updated_at", :limit => 40)
 
     respond_to do |format|
       format.html # index.html.erb
