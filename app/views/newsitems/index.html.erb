@@ -3,10 +3,6 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Content</th>
-    <th>Image url</th>
-    <th>Active</th>
-    <th>Author</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,10 +11,6 @@
 <% @newsitems.each do |newsitem| %>
   <tr>
     <td><%= newsitem.title %></td>
-    <td><%= newsitem.content %></td>
-    <td><%= newsitem.image_url %></td>
-    <td><%= newsitem.active %></td>
-    <td><%= newsitem.author %></td>
     <td><%= link_to 'Show', newsitem %></td>
     <td><%= link_to 'Edit', edit_newsitem_path(newsitem) %></td>
     <td><%= link_to 'Destroy', newsitem, :confirm => 'Are you sure?', :method => :delete %></td>
