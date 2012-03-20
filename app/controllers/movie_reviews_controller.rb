@@ -2,7 +2,7 @@ class MovieReviewsController < ApplicationController
   # GET /movie_reviews
   # GET /movie_reviews.xml
   def index
-    @movie_reviews = MovieReview.find(:all, :select => "id, title", :order => "updated_at", :limit => 40)
+    @movie_reviews = MovieReview.find(:all, :select => "id, title", :order => "updated_at desc", :limit => 40)
 
     respond_to do |format|
       format.html # index.html.erb

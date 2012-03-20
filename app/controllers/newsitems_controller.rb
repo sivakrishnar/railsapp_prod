@@ -2,7 +2,7 @@ class NewsitemsController < ApplicationController
   # GET /newsitems
   # GET /newsitems.xml
   def index
-    @newsitems = Newsitem.find(:all, :select => "id, title", :order => "updated_at", :limit => 40)
+    @newsitems = Newsitem.find(:all, :select => "id, title", :order => "updated_at desc", :limit => 40)
 
     respond_to do |format|
       format.html # index.html.erb
