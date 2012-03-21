@@ -1,3 +1,7 @@
+require 'anemone'
+require 'mechanize'
+require 'youtube_it'
+
 class VideosController < ApplicationController
   # GET /videos
   # GET /videos.xml
@@ -66,6 +70,27 @@ class VideosController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @video.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  def fetch_new
+    @data = {}
+    client = YouTubeIt::Client.new
+    url = 'http://www.ap7am.com/telugu-videos-1-all-videos.html'
+    puts "Crawling url: #{url}"
+    agent = Mechanize.new
+    pg = agent.get(url)
+    pg.images_with(:src => /default.jpg$/).each do |link|
+      url = link.src
+      url = url.gsub(/^.*com\/vi\//,'').gsub(/\/default.jpg$/,'')
+      ytid = url.to_s
+      title = client.video_by(ytid).title
+      puts "#{ytid} -> Desc:  #{title}"
+      @data[ytid]=title
+    end
+    respond_to do |format|
+          format.html # index.html.erb
+          format.xml  { render :xml => @data }
     end
   end
 

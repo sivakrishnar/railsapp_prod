@@ -1,0 +1,21 @@
+<h1>Fetched videos </h1>
+
+<table>
+  <tr>
+    <th>Video id</th>
+    <th>Title</th>
+    <th>Image id</th>
+  </tr>
+
+<% @data.keys.each do |key| %>
+  <tr>
+    <td><%= key %></td>
+    <td><%= @data[key] %></td>
+    <td><%= key %></td>
+   </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Video', new_video_path %>
