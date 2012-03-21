@@ -2,16 +2,22 @@
 
 <table>
   <tr>
+    <th>index</th>
     <th>Video id</th>
     <th>Title</th>
     <th>Image id</th>
+    <th>Add to db?</th>
   </tr>
 
-<% @data.keys.each do |key| %>
+<% @data.keys.sort{|x,y| x.to_i <=> y.to_i}.each do |index| 
+   yt = @data[index] 
+   key = yt.keys.shift %>
   <tr>
+    <td><%= index %></td>
     <td><%= key %></td>
-    <td><%= @data[key] %></td>
+    <td><%= yt[key] %></td>
     <td><%= key %></td>
+    <td><%= link_to 'Add', new_video_path(:url => key,:title => yt[key], :image_url => key, :active => 1) %></td>
    </tr>
 <% end %>
 </table>

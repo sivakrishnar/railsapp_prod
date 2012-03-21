@@ -29,6 +29,11 @@ class VideosController < ApplicationController
   # GET /videos/new.xml
   def new
     @video = Video.new
+    p params
+    @video.title = params[:title] if params[:title]
+    @video.url = params[:url] if params[:url]
+    @video.image_url = params[:image_url] if params[:image_url]
+    @video.active = params[:active] if params[:active]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -74,19 +79,26 @@ class VideosController < ApplicationController
   end
   
   def fetch_new
-    @data = {}
+    @data = Hash.new{}
     client = YouTubeIt::Client.new
     url = 'http://www.ap7am.com/telugu-videos-1-all-videos.html'
     puts "Crawling url: #{url}"
     agent = Mechanize.new
     pg = agent.get(url)
+    index = 0;
     pg.images_with(:src => /default.jpg$/).each do |link|
       url = link.src
       url = url.gsub(/^.*com\/vi\//,'').gsub(/\/default.jpg$/,'')
       ytid = url.to_s
-      title = client.video_by(ytid).title
-      puts "#{ytid} -> Desc:  #{title}"
-      @data[ytid]=title
+      ytv = client.video_by(ytid)
+      next unless ytv;
+      title = ytv.title
+      puts "Fetched:   #{ytid} -> Desc:  #{title}"
+      yt = {}
+      yt[ytid]=title
+      @data[index] = yt
+      index+= 1
+      #puts Video.new({:url => ytid, :image_url => ytid, :title => title, :active => 1}).save
     end
     respond_to do |format|
           format.html # index.html.erb
