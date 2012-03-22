@@ -90,6 +90,7 @@ class VideosController < ApplicationController
       url = link.src
       url = url.gsub(/^.*com\/vi\//,'').gsub(/\/default.jpg$/,'')
       ytid = url.to_s
+      next unless Video.find_by_url(ytid).nil?
       ytv = client.video_by(ytid)
       next unless ytv;
       title = ytv.title
