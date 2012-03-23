@@ -87,10 +87,16 @@ class VideosController < ApplicationController
     pg = agent.get(url)
     index = 0;
     pg.images_with(:src => /default.jpg$/).each do |link|
+     begin
       url = link.src
+      #puts url
       url = url.gsub(/^.*com\/vi\//,'').gsub(/\/default.jpg$/,'')
+      url = url.gsub(/^.*com\/vi\//,'').gsub(/\/hqdefault.jpg$/,'')
+      next unless url
       ytid = url.to_s
+      next unless ytid
       next unless Video.find_by_url(ytid).nil?
+      puts ytid
       ytv = client.video_by(ytid)
       next unless ytv;
       title = ytv.title
@@ -100,6 +106,9 @@ class VideosController < ApplicationController
       @data[index] = yt
       index+= 1
       #puts Video.new({:url => ytid, :image_url => ytid, :title => title, :active => 1}).save
+     rescue Exception => ex
+      puts ex; 
+     end
     end
     respond_to do |format|
           format.html # index.html.erb
